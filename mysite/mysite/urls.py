@@ -22,6 +22,10 @@ from mysite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
+    path('myaccount/',views.myaccount,name='myaccount'),
+    path('login_as/',views.login_as,name='login_as'),
+    path('logout_as/',views.logout_as,name='logout_as'),
+    path('register/',views.register,name='register'),
 ]
 
 if settings.DEBUG:
