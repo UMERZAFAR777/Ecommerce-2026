@@ -4,11 +4,18 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from slider.models import Slider
-
+from product.models import *
 def index(request):
     slider = Slider.objects.all()
+    category = Main_Category.objects.all()
+    product = Product.objects.all()
+
+
+
     data = {
         'slider':slider,
+        'category':category,
+        'product':product,
     }
     return render (request,'index.html',data)
 
@@ -83,7 +90,14 @@ def register(request):
 
 
 
+def productdetails(request,slug):
+    product = Product.objects.get(slug = slug)
 
+    data ={
+        'product':product
+    }
+
+    return render (request,'product/productdetails.html',data)
 
 
 

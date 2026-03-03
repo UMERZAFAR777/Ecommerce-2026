@@ -28,6 +28,10 @@ urlpatterns = [
     path('register/',views.register,name='register'),
 
     path('admin/',include('adminpanel.urls')),
+
+
+
+    path('productdetails/<slug>',views.productdetails,name='productdetails')
 ]
 
 if settings.DEBUG:
