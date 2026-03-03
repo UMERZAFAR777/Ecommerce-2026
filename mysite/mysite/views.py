@@ -38,7 +38,7 @@ def login_as(request):
             messages.success(request,'Login Successfully........!')
             return redirect ('index')
         else:
-            messages.success(request,'Incorrect mail/passwoord...!')
+            messages.error(request,'Incorrect mail/passwoord...!')
             return redirect ('myaccount')   
 
     return render (request,'registration/myaccount.html')
@@ -58,17 +58,17 @@ def register(request):
         password1 = request.POST.get('password1')
 
         if User.objects.filter(username = username).exists():
-            messages.success(request,'Username is Already Taken........!')
+            messages.error(request,'Username is Already Taken........!')
             return redirect ('register')
         
 
         if User.objects.filter(email = email).exists():
-            messages.success(request,'Email is Already Taken........!')
+            messages.error(request,'Email is Already Taken........!')
             return redirect ('register')
         
 
         if password != password1:
-            messages.success(request,'Password Doesnt Matched........!')
+            messages.error(request,'Password Doesnt Matched........!')
             return redirect ('register')
         
 

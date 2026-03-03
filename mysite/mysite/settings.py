@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'slider',
     'ckeditor',
     'ckeditor_uploader',
+    'adminpanel',
 ]
 
 MIDDLEWARE = [
